@@ -147,7 +147,7 @@ def to_markdown(text):
     text = text.replace('.', '*')
     return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
-GOOGLE_API_KEY='AIzaSyAcl7275cooxoWBAM5G-c8pxWkc3RvI4X8'
+GOOGLE_API_KEY=Enter Api key Here
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Check if the model is already saved
