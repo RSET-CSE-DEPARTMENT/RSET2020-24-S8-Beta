@@ -1,0 +1,96 @@
+
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('coverpage3.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            background-color: #e74c3c;
+        }
+
+        header {
+            text-align: center;
+            background-color: #3498db;
+            background: url('coverpage3.png') no-repeat center center fixed;
+            color: #070707;
+            padding: 10px;
+        }
+
+        header a{
+            color: #060606;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size:x-large;
+            transition: color 0.3s ease-in-out;
+        }
+
+        header a:hover {
+            color: #3498db;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #0d0d0d;
+            background: url('coverpage3.png') no-repeat center center fixed;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #080808;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+            background: url('coverpage3.png') no-repeat center center fixed;
+        }
+
+        nav a:hover {
+            color: #e74c3c;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #060606;
+            background: url('coverpage3.png') no-repeat center center fixed;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #090909;
+            font-weight: bold;
+            
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            font-weight: bold;
+            
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: #080808;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        
+        
+
+        
+    
