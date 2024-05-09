@@ -1,0 +1,60 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+
+ <!--/ Intro Single star /-->
+ <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Registered users</h1>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+    <!--/ Contact Star /-->
+    <section class="contact">
+        <div class="container">
+          <div class="row">
+           
+            <div class="col-sm-12 section-t8">
+              <div class="row">
+                <div class="col-md-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email </th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              {% for i in result %}
+                                <td class="name-pr">{{i.name}}</td>
+                                <td class="price-pr">{{i.email}}</td>
+                               
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+
+                </div>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Contact End /-->
+
+{% include 'footer.html' %}
+
+{% endblock %}
