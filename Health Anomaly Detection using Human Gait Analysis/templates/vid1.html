@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('/static/tree_dawn_lonely_128467_1920x1200.jpg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+        }
+        #video-container {
+            width: 100%;
+            text-align: center;
+        }
+        video {
+            max-width: 100%;
+        }
+        canvas {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="video-input" accept="video/*" />
+    <div id="video-container">
+        <video id="video" controls></video>
+        <canvas id="frame-canvas"></canvas>
+    </div>
+    <button id="capture-frames">Capture Frames</button>
+    <button id="stop-capture" style="display: none;">Stop Capture</button>
+    <button id="process-poses" style="display: none;">Process Poses</button> <!-- Added button -->
+
+    <div id="pose-graphs-container"></div>
+    
+    <a href="home.html">
+        <button id="back-button">Back</button>
+    </a>
+
+    <script>
+        const videoInput = document.getElementById("video-input");
+        const video = document.getElementById("video");
+        const frameCanvas = document.getElementById("frame-canvas");
+        const captureFramesButton = document.getElementById("capture-frames");
+        const stopCaptureButton = document.getElementById("stop-capture");
+
+        let capturingFrames = false;
+
+        videoInput.addEventListener("change", function () {
+            if (capturingFrames) {
+                return;
+            }
+
+            const file = videoInput.files[0];
+            if (file) {
+                const objectURL = URL.createObjectURL(file);
+                video.src = objectURL;
+
+                video.addEventListener("play", function () {
+                    const videoDuration = video.duration;
+                    const framesToCapture = 10;
+                    const interval = videoDuration / framesToCapture;
+
+                    capturingFrames = true;
+                    stopCaptureButton.style.display = "inline";
+                    captureFramesButton.style.display = "none";
+
+                    let capturedFrames = 0;
+                    let currentTime = 0;
+
+                    const captureFrame = function () {
+                        if (capturedFrames >= framesToCapture) {
+                            stopCapture();
+                            return;
+                        }
+
+                        video.currentTime = currentTime;
+
+                        const canvasContext = frameCanvas.getContext("2d");
+                        const videoWidth = video.videoWidth;
+                        const videoHeight = video.videoHeight;
+
+                        frameCanvas.width = videoWidth;
+                        frameCanvas.height = videoHeight;
+
+                        canvasContext.drawImage(video, 0, 0, videoWidth, videoHeight);
+                        const frameDataURL = frameCanvas.toDataURL("image/jpeg");
+
+                        const frameImage = new Image();
+                        frameImage.src = frameDataURL;
+                        document.body.appendChild(frameImage);
+
+                        capturedFrames++;
+                        currentTime += interval;
+
+                        // Capture the next frame after the interval
+                        setTimeout(captureFrame, interval * 1000); // Convert seconds to milliseconds
+                    };
+
+                    // Start capturing frames
+                    captureFrame();
+                });
+            }
+        });
+
+        function stopCapture() {
+            if (capturingFrames) {
+                capturingFrames = false;
+                stopCaptureButton.style.display = "none";
+                captureFramesButton.style.display = "inline";
+            }
+        }
+
+        stopCaptureButton.addEventListener("click", stopCapture);
+
+        const processPosesButton = document.getElementById("process-poses");
+        processPosesButton.addEventListener("click", processPoses);
+
+        function processPoses() {
+            // Add code to send frames to the server for pose estimation
+            // You can use the frames captured during video playback
+            // Use an AJAX request to send frames to the server endpoint for processing
+            // Update the server endpoint and handle the response accordingly
+            // For simplicity, let's assume the server endpoint is '/process_poses'
+            // The response should contain the pose graphs or relevant information
+
+            // Example AJAX request (use a library like Axios for more robust handling)
+            // Handle the response and display pose graphs
+            fetch('/process_poses', {
+                method: 'POST',
+                body: new FormData(videoForm),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Clear previous pose graphs
+                const poseGraphsContainer = document.getElementById("pose-graphs-container");
+                poseGraphsContainer.innerHTML = "";
+
+                // Display new pose graphs
+                data.pose_graphs.forEach(poseGraph => {
+                    const frameImage = new Image();
+                    frameImage.src = 'data:image/jpeg;base64,' + poseGraph.frame;
+                    poseGraphsContainer.appendChild(frameImage);
+
+                    // Draw pose landmarks on the image
+                    const canvas = document.createElement("canvas");
+                    canvas.width = frameImage.width;
+                    canvas.height = frameImage.height;
+                    const context = canvas.getContext("2d");
+
+                    poseGraph.landmarks.forEach(landmark => {
+                        const x = landmark[0] * frameImage.width;
+                        const y = landmark[1] * frameImage.height;
+
+                        // Draw a red dot for each landmark
+                        context.fillStyle = "red";
+                        context.beginPath();
+                        context.arc(x, y, 5, 0, 2 * Math.PI);
+                        context.fill();
+                    });
+
+                    // Append the canvas to the poseGraphsContainer
+                    poseGraphsContainer.appendChild(canvas);
+                });
+            })
+            .catch(error => {
+                console.error('Error processing poses:', error);
+            });
+        }
+    </script>
+</body>
+</html>

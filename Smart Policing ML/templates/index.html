@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveillance Zone</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles1.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<body style="font-family: verdana">
+    <div class="surveillance">
+       
+        <marquee behavior="scroll" direction="left"><TT>Surveillance Zone</TT></marquee>
+        
+           <div class="tabs">
+              
+                  <button class="tablinks" onclick="openTab(event, 'camera')">Camera</button>
+                  <button class="tablinks" onclick="openTab(event, 'map')">Map</button>
+                  <button class="tablinks" onclick="openTab(event, 'notifications')">Notifications</button>
+                  <button class="tablinks" onclick="openTab(event, 'detection')">Detection</button>
+                  <form method="post" action="{{ url_for('index') }}">
+                    <button type='submit' name='logout' class="logout-btn">Logout</button>
+                  </form>
+            </div>
+            
+        <div id="camera" class="tabcontent">
+            <!-- Content for Camera -->
+            <button class="collapsible" onclick="toggleCameraTabs()">Camera Tabs</button>
+            <div class="content" style="display:none">
+                <button class="subtablinks" onclick="openSubTab(event, 'camera1')">Camera 1</button>
+                <button class="subtablinks" onclick="openSubTab(event, 'camera2')">Camera 2</button>
+            </div>
+
+            <div id="camera1" class="subtabcontent" style="display:none">
+                <!-- Content for Camera 1 -->
+                <img src="http://91.192.168.58:8080/mjpg/video.mjpg" alt="Camera 1 Footage " style="width: 60%; height: auto;">
+            </div>
+
+            <div id="camera2" class="subtabcontent" style="display:none">
+                <!-- Content for Camera 2 -->
+                <img src="http://110.4.178.160:8082/-wvhttp-01-/GetOneShot?image_size=640x480&frame_count=1000000000" alt="Camera 2 Footage" style="width: 60%; height: auto;">
+            </div>
+        </div>
+
+        <div id="notifications" class="tabcontent" style="display:none">
+            <!-- Content for Notifications -->
+            <p style="color: #007bff;">Notifications go here...</p>
+        </div>
+
+        <div id="map" class="tabcontent">
+            <!-- Content for Map -->
+            <div class="content">
+                <button class="subtablinks" onclick="openSubTab(event, 'map_camera1')">Camera 1 Location</button>
+                <button class="subtablinks" onclick="openSubTab(event, 'map_camera2')">Camera 2 Location</button>
+            </div>
+            <div id="map_camera1" class="subtabcontent" style="display:none">
+                <iframe src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDkdjGS-HrzRRO9T06nMD09jUspVe2TX-0&center=55.752220,37.615560&zoom=15" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div id="map_camera2" class="subtabcontent" style="display:none">
+                <iframe src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDkdjGS-HrzRRO9T06nMD09jUspVe2TX-0&center=37.624160,-109.478180&zoom=15" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div id="detection" class="tabcontent" style="display:none">
+            <h1 style="color: #007bff;">Welcome to detection zone !!!</h1>
+            <form action="/fire_detection_script" method="post">
+                <button type="submit">Run Object Detection Script</button>
+            </form>
+        </div>
+
+        <div class="floating-tab">
+            <button class="message-tab">Messages</button>
+            <div class="message-content" style="display:none">
+                <p>Message 1</p>
+                <p>Message 2</p>
+                <p>Message 3</p>
+            </div>
+        </div>
+     
+    </div>
+
+
+    
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+body.dark-theme {
+    background-color: #111;
+    color: #eee;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('poster.jpg'); 
+    background-size: cover;
+    background-position: center;
+    filter: brightness(1.0); /* Adjust the brightness as needed */
+}
+
+.container {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+    width: 320px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Adjust the background color opacity */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.surveillance {
+    background-color: #222;
+    padding: 10px;
+    text-align: center;
+}
+
+.surveillance marquee {
+    color: #ff0;
+}
+.tabs {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.tablinks {
+    background-color: #444;
+    color: #fff;
+    float: left;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+}
+
+.tablinks:hover {
+    background-color: #555;
+}
+
+.tabcontent {
+    display: none;
+    padding: 20px;
+}
+
+
+.floating-tab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.message-tab {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.message-content {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    width: 200px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+}
+
+.message-content p {
+    margin: 5px 0;
+    padding: 0;
+}
+
+.tabs1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: right;
+}
+
+.tablinks1, .logout-btn {
+    background-color: #b30000;
+    color: #fff;
+    border: none;
+    float: right;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.tablinks1:hover, .logout-btn:hover {
+    background-color: #000000;
+}
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.login-container, .content-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"], input[type="password"], button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

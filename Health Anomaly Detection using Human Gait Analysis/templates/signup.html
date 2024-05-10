@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="/static/signup_style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="home1.html">Home</a>
+            <a href="home1.html">About</a>
+            <a href="home1.html">Services</a>
+            <a href="home1.html">Contact</a>
+        </nav>
+    
+    </header>
+    <div class="background"></div>
+    <div class="container">
+        <div class="content">
+            <h2 class="logo"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAI1JREFUWEft11EKgCAQhOHfk9XNqpvVyYogewhiVAoWGV/ddPrYxBLBRgqWh24CzcAkdBfgrKsarUIOpJgtZKEs4K9M9UJ4odKTdQQG8bYbsCqRa/7e9ym0Fy7wddmdw4FeaC2kes5C/QiFOxgVbZ73BU1JWchCvsKqHrDQ30Kl61fXtf51VG9U+kC4QAcyhTYlIZkZcgAAAABJRU5ErkJggg=="/>
+                GaitHealth</h2>
+                <div class="text-sci">
+                <h2>Welcome! <br><span>To our website</span></h2>
+                <p>
+                    “Health is a state of complete physical, mental and social well-being and not merely the 
+                    absence <br>of disease or infirmity.” <br>– World Health Organization
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                    <a href="#"><i class='bx bxl-facebook-square' ></i></a>
+                    <a href="#"><i class='bx bxl-twitter' ></i></a>
+                    <a href="#"><i class='bx bxl-instagram' ></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="logreg-box">
+            <div class="form-box login">
+                <form id="signupForm">
+                    <h2>Sign Up</h2>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-user' ></i></span>
+                        <input type="text" id="name" required>
+                        <label>Name</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-envelope'></i></span>
+                        <input type="email" id="email" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><i class='bx bxs-lock-alt' ></i></span>
+                        <input type="password" id="password" required>
+                        <label>Password</label>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox" id="checkbox">Remember Me</label>
+                    </div>
+                    <input type="submit" class="btn" value="Register"></input>
+                    <div class="login-register">
+                        <p>Already have an account? <a href="signin.html" class="register-link">Sign In</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Add the Firebase App, Realtime Database, and Authentication SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebaseui.js"></script>  
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="/static/signup1.js"></script>
+    <script src="/static/signup.js"></script>
+</body>
+</html>

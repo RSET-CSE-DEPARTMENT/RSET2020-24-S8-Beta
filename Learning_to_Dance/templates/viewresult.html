@@ -1,0 +1,94 @@
+{% block content %}
+{% load static %}
+
+{% include 'header.html' %}
+<div class="intro intro-carousel">
+  <div id="carousel" class="owl-carousel owl-theme">
+    <div class="carousel-item-a intro-item bg-image" style="background-image: url(static/img/1.jpg) ">
+      <div class="overlay overlay-a"></div>
+      <div class="intro-content display-table">
+        <div class="table-cell">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="intro-body">
+                  <!-- <p class="intro-title-top">Doral, Florida
+                    <br> 78345</p> -->
+                  <h1 class="intro-title mb-4">
+                    <span class="color-b">Learning To </span> Dance</h1>
+                  <p class="intro-subtitle intro-price">
+                    <!-- <a href="#"><span class="price-a">rent | $ 12.000</span></a> -->
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!--/ Intro Single star /-->
+ <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Result</h1>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+    <!--/ Contact Star /-->
+    <section class="contact">
+        <div class="container">
+          <div class="row">
+           
+            <div class="col-sm-12 section-t8">
+              <div class="row">
+                <div class="col-md-6">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>AUDIO</th>
+                                <th>RESULT</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              {% for i in result %}
+                              <td class="price-pr">
+                                <audio controls>
+                                  <source src="media/{{i.file}}" type="audio/wav">
+                                  Your browser does not support the audio element.
+                                </audio>
+                              </td>
+                              
+                              <td class="price-pr">
+                                <td> <a href="{% url 'download_generated_dance' %}?id={{ i.id }}">download</a> </td>
+                              </td>
+                               
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+
+                </div>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Contact End /-->
+
+{% include 'footer.html' %}
+
+{% endblock %}

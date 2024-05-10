@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gait Analysis for Disease Probability Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('/static/sea_horizon_sunrise_993261_1920x1200.jpg') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            color: #fff;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #0074d9;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        #frame-container {
+            margin-top: 20px;
+        }
+
+        #frame-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Gait Analysis for Disease Probability Prediction</h1>
+        <a class="button" href="vid1.html">Upload Video</a>
+        <a class="button" href="classify.html">Classify</a>
+        <div id="frame-container"></div>
+    </div>
+
+    <script>
+        // Retrieve captured frames from localStorage
+        const capturedFrames = JSON.parse(localStorage.getItem("capturedFrames"));
+
+        if (capturedFrames && capturedFrames.length > 0) {
+            // Display captured frames
+            const frameContainer = document.getElementById("frame-container");
+
+            for (const frameDataURL of capturedFrames) {
+                const frameImage = new Image();
+                frameImage.src = frameDataURL;
+                frameContainer.appendChild(frameImage);
+            }
+        }
+    </script>
+</body>
+</html>
