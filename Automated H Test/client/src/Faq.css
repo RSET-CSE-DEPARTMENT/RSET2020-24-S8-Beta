@@ -1,0 +1,25 @@
+/* FAQPage.css */
+
+.faq-page {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .faq-list {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .faq-item {
+    margin-bottom: 30px;
+  }
+  
+  .faq-item h2 {
+    color: #007bff;
+  }
+  
+  .faq-item p {
+    color: #333;
+    line-height: 1.6;
+  }
+  

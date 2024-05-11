@@ -1,0 +1,67 @@
+.booking-slot-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.booking-slot-container h2 {
+  margin-top: 0;
+}
+
+.date-picker-container {
+  margin-bottom: 20px;
+}
+
+.date-picker {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.slot {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.slot.selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.slot.booked {
+  background-color: #28a745; /* Green color indicating booked slot */
+  color: #fff;
+}
+
+.book-button-container {
+  margin-top: 20px;
+}
+
+.book-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.book-button:hover {
+  background-color: #0056b3;
+}
+
+.booking-message {
+  margin-top: 20px;
+  font-weight: bold;
+}
