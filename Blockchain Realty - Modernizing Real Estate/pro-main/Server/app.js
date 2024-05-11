@@ -103,7 +103,7 @@ app.get('/proxy', async (req, res) => {
     if (!ipfsHash) {
       return res.status(400).send('IPFS hash is required');
     }
-    const pinataGatewayToken = 'i47fCpinbNBylPNQWk-mw04o21mXpNImgOW6e3w347ZG1QCk_szXUR9eg11SWJWu'; // Replace with your Pinata gateway access token
+    const pinataGatewayToken = 'YOUR_GATEWAY_TOKEN'; // Replace with your Pinata gateway access token
     const response = await fetch(`https://silver-adorable-ocelot-850.mypinata.cloud/ipfs/${ipfsHash}?pinataGatewayToken=${pinataGatewayToken}`);
     const data = await response.text();
     //console.log('Fetched data:', data);
