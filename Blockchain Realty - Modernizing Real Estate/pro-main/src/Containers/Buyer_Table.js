@@ -529,8 +529,8 @@ class TableComponent extends Component {
       const response = await axios.post('https://api.pinata.cloud/pinning/pinJSONToIPFS', updatedDetails, {
         headers: {
           'Content-Type': 'application/json',
-          'pinata_api_key': 'cc2e456c6ae0b7d9a397',
-          'pinata_secret_api_key': '4bd2232ad436ce37e00aaba19f647af754193b7012282210261af58411eea8e8',
+          'pinata_api_key': 'YOUR_KEY',
+          'pinata_secret_api_key': 'YOUR_SECRET_KEY',
         },
       });
       return response.data.IpfsHash;

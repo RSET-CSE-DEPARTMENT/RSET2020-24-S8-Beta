@@ -36,6 +36,6 @@
     "passport-local": "^1.0.0",
     "validator": "^12.1.0"
   },
-  "author": "Simran Gupta",
+  "author": "Kamil Hadi",
   "license": "ISC"
 }
